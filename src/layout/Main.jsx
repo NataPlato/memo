@@ -14,6 +14,7 @@ class Main extends React.Component {
 
     componentDidMount() {
         this.searchMovies();
+        console.log(process.env);
     }
 
     searchMovies = (str = 'all', type = 'all') => {
