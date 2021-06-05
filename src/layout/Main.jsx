@@ -18,12 +18,12 @@ class Main extends React.Component {
 
     searchMovies = (str = 'all', type = 'all') => {
         this.setState({loading: true})
-        fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${str}${
+        fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${str ? str : "all"}${
             type !== 'all' ? `&type=${type}` : ''
         }`)
             .then(response => response.json())
             .then(data => this.setState({moviesList: data.Search, loading: false}))
-            .catch((err) => {
+            .catch(() => {
                 this.setState({loading: false})
             })
     }
