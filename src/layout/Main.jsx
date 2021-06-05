@@ -14,7 +14,6 @@ class Main extends React.Component {
 
     componentDidMount() {
         this.searchMovies();
-        console.log(process.env);
     }
 
     searchMovies = (str = 'all', type = 'all') => {
@@ -25,7 +24,6 @@ class Main extends React.Component {
             .then(response => response.json())
             .then(data => this.setState({moviesList: data.Search, loading: false}))
             .catch((err) => {
-                console.error(err);
                 this.setState({loading: false})
             })
     }
